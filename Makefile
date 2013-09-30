@@ -70,7 +70,7 @@ toolchain-%:
 kernel-%:
 	-@cd kernel/syno-$*/ && MAKEFLAGS= $(MAKE)
 
-setup: local.mk
+setup: local.mk dsm43
 
 local.mk:
 	@echo "Creating local configuration \"local.mk\"..."
@@ -80,3 +80,13 @@ local.mk:
 	@echo "PUBLISH_FTP_URL=ftp://synocommunity.com/upload_spk" >> $@
 	@echo "PUBLISH_FTP_USER=" >> $@
 	@echo "PUBLISH_FTP_PASSWORD=" >> $@
+
+dsm42:
+	@echo "Using toolchains for DSM 4.2"
+	@rm -f toolchains
+	@ln -sf toolchains-4.2 toolchains
+
+dsm43:
+	@echo "Using toolchains for DSM 4.3"
+	@rm -f toolchains
+	@ln -sf toolchains-4.3 toolchains
