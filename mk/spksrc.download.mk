@@ -42,64 +42,43 @@ download_target: $(PRE_DOWNLOAD_TARGET)
 	do \
 	  case "$(PKG_DOWNLOAD_METHOD)" in \
 	    git) \
-	      if [ "$(PKG_EXT)" == "tar.gz" ] || [ "$(PKG_EXT)" == "tgz" ]; then \
-			tar_opt=-czf ; \
-		  elif  [ "$(PKG_EXT)" == "tar.bz2" ]; then \
-			tar_opt=-cjf ; \
-		  elif  [ "$(PKG_EXT)" == "tar.xz" ]; then \
-			tar_opt=-cJf ; \
+	      localFolder=$(NAME)-git$(PKG_GIT_HASH) ; \
+	      localFile=$${localFolder}.tar.gz ; \
+	      if [ ! -f $${localFile} ]; then \
+	        rm -fr $${localFolder}.part ; \
+	        echo "git clone $${url}" ; \
+	        git clone --no-checkout --quiet $${url} $${localFolder}.part ; \
+	        git --git-dir=$${localFolder}.part/.git --work-tree=$${localFolder}.part checkout --quiet $(PKG_GIT_HASH) ; \
+	        mv $${localFolder}.part $${localFolder} ; \
+	        tar --exclude-vcs -czf $${localFile} $${localFolder} ; \
+	        rm -fr $${localFolder} ; \
 	      else \
-	        $(MSG) "  PKG_EXT=$(PKG_EXT) is not supported." ; \
-            exit 1 ; \
-		  fi ; \
-		  localFolder=$(PKG_NAME)-$(PKG_VERS)-git$(PKG_GIT_HASH) ; \
-		  localFile=$(PKG_DIST_FILE) ; \
-		  if [ ! -f $${localFile} ]; then \
-			rm -fr $${localFolder}.part ; \
-			echo "git clone $${url}" ; \
-			git clone --no-checkout --quiet $${url} $${localFolder}.part ; \
-			git --git-dir=$${localFolder}.part/.git --work-tree=$${localFolder}.part checkout --quiet $(PKG_GIT_HASH) ; \
-			mv $${localFolder}.part $${localFolder} ; \
-			tar --exclude-vcs $${tar_opt} $${localFile} $${localFolder} ; \
-			rm -fr $${localFolder} ; \
-	      else \
-			$(MSG) "  File $${localFile} already downloaded" ; \
-		  fi ; \
+	        $(MSG) "  File $${localFile} already downloaded" ; \
+	      fi ; \
 	      ;; \
 	    svn) \
-	      if [ "$(PKG_EXT)" == "tar.gz" ] || [ "$(PKG_EXT)" == "tgz" ]; then \
-			tar_opt=-czf ; \
-		  elif  [ "$(PKG_EXT)" == "tar.bz2" ]; then \
-			tar_opt=-cjf ; \
-		  elif  [ "$(PKG_EXT)" == "tar.xz" ]; then \
-			tar_opt=-cJf ; \
+	      if [ "$(PKG_SVN_REV)" = "HEAD" ]; then \
+	        rev=`svn info --xml $${url} | xmllint --xpath 'string(/info/entry/@revision)' -` ; \
 	      else \
-	        $(MSG) "  PKG_EXT=$(PKG_EXT) is not supported." ; \
-            exit 1 ; \
-		  fi ; \
-		  if [ "$(PKG_SVN_REV)" = "HEAD" ]; then \
-			rev=`svn info --xml $${url} | xmllint --xpath 'string(/info/entry/@revision)' -` ; \
-			localFile=$(PKG_NAME)-$(PKG_VERS)-r$${rev}.$(PKG_EXT) ; \
-		  else \
-			rev=$(PKG_SVN_REV) ; \
-			localFile=$(PKG_NAME)-$(PKG_VERS)-r$(PKG_SVN_REV).$(PKG_EXT) ; \
-		  fi ; \
-		  localFolder=$(PKG_NAME)-$(PKG_VERS)-r$${rev} ; \
-		  localHead=$(PKG_NAME)-$(PKG_VERS)-rHEAD.$(PKG_EXT) ; \
-		  if [ ! -f $${localFile} ]; then \
-			rm -fr $${localFolder}.part ; \
-			echo "svn co -r $${rev} $${url}" ; \
-			svn export -q -r $${rev} $${url} $${localFolder}.part ; \
-			mv $${localFolder}.part $${localFolder} ; \
-			tar --exclude-vcs $${tar_opt} $${localFile} $${localFolder} ; \
-			rm -fr $${localFolder} ; \
-		  else \
-			$(MSG) "  File $${localFile} already downloaded" ; \
-		  fi ; \
-		  if [ "$(PKG_SVN_REV)" = "HEAD" ]; then \
-			rm -f $${localHead} ; \
-			ln -s $${localFile} $${localHead} ; \
-		  fi ; \
+	        rev=$(PKG_SVN_REV) ; \
+	      fi ; \
+	      localFolder=$(NAME)-r$${rev} ; \
+	      localFile=$${localFolder}.tar.gz ; \
+	      localHead=$(NAME)-rHEAD.tar.gz ; \
+	      if [ ! -f $${localFile} ]; then \
+	        rm -fr $${localFolder}.part ; \
+	        echo "svn co -r $${rev} $${url}" ; \
+	        svn export -q -r $${rev} $${url} $${localFolder}.part ; \
+	        mv $${localFolder}.part $${localFolder} ; \
+	        tar --exclude-vcs -czf $${localFile} $${localFolder} ; \
+	        rm -fr $${localFolder} ; \
+	      else \
+	        $(MSG) "  File $${localFile} already downloaded" ; \
+	      fi ; \
+	      if [ "$(PKG_SVN_REV)" = "HEAD" ]; then \
+	        rm -f $${localHead} ; \
+	        ln -s $${localFile} $${localHead} ; \
+	      fi ; \
 	      ;; \
 	    *) \
 	      localFile=$(PKG_DIST_FILE) ; \
