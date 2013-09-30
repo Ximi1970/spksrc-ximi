@@ -87,6 +87,9 @@ dsm42:
 	@ln -sf toolchains-4.2 toolchains
 
 dsm43:
-	@echo "Using toolchains for DSM 4.3"
+	@echo "Setting up toolchains for DSM 4.3"
 	@rm -f toolchains
 	@ln -sf toolchains-4.3 toolchains
+	@echo "Setting up kernels for DSM 4.3"
+	@rm -f kernel
+	@ln -sf kernel-4.3 kernel
