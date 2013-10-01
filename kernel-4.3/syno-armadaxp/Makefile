@@ -1,7 +1,7 @@
 ARCH ?= armadaxp
 PKG_NAME = synogpl
 PKG_BRANCH = 3776
-PKG_ARCH = 6281
+PKG_ARCH = $(ARCH)
 PKG_EXT = tbz
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_BRANCH)-$(PKG_ARCH).$(PKG_EXT)
 PKG_DIST_SITE = http://downloads.sourceforge.net/project/dsgpl/Synology%20NAS%20GPL%20Source/$(PKG_BRANCH)branch
