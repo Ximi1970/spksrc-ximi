@@ -21,7 +21,7 @@ ADDITIONAL_SCRIPTS =
 
 INSTALL_PREFIX = /usr/local/$(SPK_NAME)
 
-ARCHITECTURES = bromolow cedarview x86 88f6281
+ARCHITECTURES = bromolow cedarview pineview evansport x86 88f6281
 
 
 PRE_DEPEND_TARGET = myPreDepend
@@ -32,7 +32,7 @@ define \n
 
 
 endef
-ifneq ($(findstring $(ARCH),88f5281 armada370 powerpc ppc824x ppc853x ppc854x qoriq ),)
+ifneq ($(findstring $(ARCH),88f5281 armada370 armadaxp powerpc ppc824x ppc853x ppc854x qoriq ),)
 $(error ${\n}${\n}Architecture not supported.${\n}${\n})
 endif
 
@@ -45,7 +45,7 @@ endif
 include ../../mk/spksrc.spk.mk
 
 
-ifneq ($(findstring $(ARCH), bromolow cedarview x86),)
+ifneq ($(findstring $(ARCH), bromolow cedarview pineview evansport x86),)
 $(info Found $(ARCH))
 MAIN_MAKE_TOOLCHAIN_TARGET = x86_64-linux-gnu
 MAKE_TOOLCHAIN_TARGET = x86_64-linux-gnu
@@ -69,10 +69,13 @@ clean-%:
 	export CLEANUP=$${CLEANUP:6} ; \
 	if 	[ "$$CLEANUP" == "bromolow" ] || \
 		[ "$$CLEANUP" == "cedarview" ] || \
+		[ "$$CLEANUP" == "pineview" ] || \
+		[ "$$CLEANUP" == "evansport" ] || \
 		[ "$$CLEANUP" == "x86" ] || \
 		[ "$$CLEANUP" == "88f6281" ] || \
 		[ "$$CLEANUP" == "88f5281" ] || \
 		[ "$$CLEANUP" == "armada370" ] || \
+		[ "$$CLEANUP" == "armadaxp" ] || \
 		[ "$$CLEANUP" == "powerpc" ] || \
 		[ "$$CLEANUP" == "ppc824x" ] || \
 		[ "$$CLEANUP" == "ppc853x" ] || \
