@@ -1,0 +1,8 @@
+bin:bin/speexdec
+bin:bin/speexenc
+lnk:lib64/libspeexdsp.so
+lnk:lib64/libspeexdsp.so.1
+lib:lib64/libspeexdsp.so.1.5.0
+lnk:lib64/libspeex.so
+lnk:lib64/libspeex.so.1
+lib:lib64/libspeex.so.1.5.0

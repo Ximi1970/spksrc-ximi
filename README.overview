@@ -6,6 +6,8 @@ Status of the packages:
 	spk			architecture
 
 				88f6281  armada370  armadaxp x86_64-archs  ppc853x  qoriq
-	binutils		ok       
+	binutils		ok       ok         ok       ok            ok       ok
+	helloworld		ok       ok         ok       ok            ok       ok
+	helloworld-fascgiqt	ok       -          -        ok            -        -
 	toolchain-gcc47		ok       -          -        ok            -        -
 	toolchain-gcc48		ok       -          -        ok            -        -

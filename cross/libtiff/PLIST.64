@@ -1,0 +1,6 @@
+lnk:lib64/libtiff.so
+lnk:lib64/libtiff.so.3
+lib:lib64/libtiff.so.3.9.5
+lnk:lib64/libtiffxx.so
+lnk:lib64/libtiffxx.so.3
+lib:lib64/libtiffxx.so.3.9.5

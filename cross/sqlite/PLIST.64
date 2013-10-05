@@ -1,0 +1,4 @@
+bin:bin/sqlite3
+lnk:lib64/libsqlite3.so
+lnk:lib64/libsqlite3.so.0
+lib:lib64/libsqlite3.so.0.8.6

@@ -1,0 +1,16 @@
+bin:bin/event_rpcgen.py
+lnk:lib64/libevent.so
+lnk:lib64/libevent-2.0.so.5
+lib:lib64/libevent-2.0.so.5.1.9
+lnk:lib64/libevent_core.so
+lnk:lib64/libevent_core-2.0.so.5
+lib:lib64/libevent_core-2.0.so.5.1.9
+lnk:lib64/libevent_extra.so
+lnk:lib64/libevent_extra-2.0.so.5
+lib:lib64/libevent_extra-2.0.so.5.1.9
+lnk:lib64/libevent_openssl.so
+lnk:lib64/libevent_openssl-2.0.so.5
+lib:lib64/libevent_openssl-2.0.so.5.1.9
+lnk:lib64/libevent_pthreads.so
+lnk:lib64/libevent_pthreads-2.0.so.5
+lib:lib64/libevent_pthreads-2.0.so.5.1.9

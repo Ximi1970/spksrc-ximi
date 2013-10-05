@@ -49,8 +49,11 @@ CXXFLAGS += $(TC_CXXFLAGS)
 CXXFLAGS += -I$(INSTALL_DIR)/$(INSTALL_PREFIX)/include
 
 LDFLAGS += $(TC_LDFLAGS)
+LDFLAGS += -L$(INSTALL_DIR)/$(INSTALL_PREFIX)/lib64
 LDFLAGS += -L$(INSTALL_DIR)/$(INSTALL_PREFIX)/lib
+LDFLAGS += -Wl,--rpath-link,$(INSTALL_DIR)/$(INSTALL_PREFIX)/lib64
 LDFLAGS += -Wl,--rpath-link,$(INSTALL_DIR)/$(INSTALL_PREFIX)/lib
+LDFLAGS += -Wl,--rpath,$(INSTALL_PREFIX)/lib64
 LDFLAGS += -Wl,--rpath,$(INSTALL_PREFIX)/lib
 
 NAME_EXT = $(shell echo $(ARCH) | grep "-" | sed "s/.*-/-/" )

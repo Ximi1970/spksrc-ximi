@@ -1,0 +1,3 @@
+lnk:lib64/libmng.so
+lnk:lib64/libmng.so.2
+lib:lib64/libmng.so.2.0.2
