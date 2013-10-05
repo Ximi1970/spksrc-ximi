@@ -42,7 +42,7 @@ else
 $(error This package is part of a toolchain. Please start with the package: spk/toolchain-gcc[47|48] arch-<arch> )
 endif
 
-ifneq ($(findstring $(ARCH), bromolow cedarview x86),)
+ifneq ($(findstring $(ARCH), bromolow cedarview pineview evansport x86),)
 ARCH_LIBDIR=lib64
 else
 ARCH_LIBDIR=lib
