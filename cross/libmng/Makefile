@@ -11,7 +11,7 @@ HOMEPAGE = http://www.libmng.com/pub/mng/index.html
 COMMENT  = Multiple-image Network Graphics Library
 LICENSE  = http://www.libmng.com/license.html
 
-ifneq ($(findstring bromolow,$(ARCH))$(findstring cedarview,$(ARCH))$(findstring x86,$(ARCH)),)
+ifneq ($(findstring bromolow,$(ARCH))$(findstring cedarview,$(ARCH))$(findstring pineview,$(ARCH))$(findstring x86,$(ARCH)),)
 LIBDIR=lib64
 else
 LIBDIR=lib
