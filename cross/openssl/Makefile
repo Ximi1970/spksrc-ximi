@@ -20,7 +20,7 @@ STAGING_INSTALL_PREFIX := $(INSTALL_DIR)
 include ../../mk/spksrc.cross-cc.mk
 
 OPENSSL_ARCH = linux-generic32
-ifneq ($(findstring bromolow,$(ARCH))$(findstring cedarview,$(ARCH))$(findstring pineview,$(ARCH))$(findstring evansport,$(ARCH))$(findstring x86,$(ARCH)),)
+ifneq ($(findstring bromolow,$(ARCH))$(findstring cedarview,$(ARCH))$(findstring pineview,$(ARCH))$(findstring x86,$(ARCH)),)
 OPENSSL_ARCH = --libdir=lib64 linux-x86_64
 endif
 

@@ -17,7 +17,7 @@ LICENSE  = https://github.com/fredemmott/fastcgiqt
 CONFIGURE_TARGET = myConfigure
 INSTALL_TARGET = myInstall
 
-ifneq ($(findstring bromolow,$(ARCH))$(findstring cedarview,$(ARCH))$(findstring pineview,$(ARCH))$(findstring evansport,$(ARCH))$(findstring x86,$(ARCH)),)
+ifneq ($(findstring bromolow,$(ARCH))$(findstring cedarview,$(ARCH))$(findstring pineview,$(ARCH))$(findstring x86,$(ARCH)),)
 LIBDIR_SUFFIX=64
 else
 LIBDIR_SUFFIX=

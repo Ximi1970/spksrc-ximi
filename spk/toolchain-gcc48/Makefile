@@ -45,10 +45,15 @@ endif
 include ../../mk/spksrc.spk.mk
 
 
-ifneq ($(findstring $(ARCH), bromolow cedarview pineview evansport x86),)
+ifneq ($(findstring $(ARCH), bromolow cedarview pineview x86),)
 $(info Found $(ARCH))
 MAIN_MAKE_TOOLCHAIN_TARGET = x86_64-linux-gnu
 MAKE_TOOLCHAIN_TARGET = x86_64-linux-gnu
+endif
+ifneq ($(findstring $(ARCH), evansport),)
+$(info Found $(ARCH))
+MAIN_MAKE_TOOLCHAIN_TARGET = i686-pc-linux-gnu
+MAKE_TOOLCHAIN_TARGET = i686-pc-linux-gnu
 endif
 ifneq ($(findstring $(ARCH), 88f6281),)
 $(info Found $(ARCH))

@@ -15,7 +15,7 @@ CONFIGURE_TARGET = myConfigure
 COMPILE_TARGET = myCompile
 INSTALL_TARGET = myInstall
 
-ifneq ($(findstring bromolow,$(ARCH))$(findstring cedarview,$(ARCH))$(findstring pineview,$(ARCH))$(findstring evansport,$(ARCH))$(findstring x86,$(ARCH)),)
+ifneq ($(findstring bromolow,$(ARCH))$(findstring cedarview,$(ARCH))$(findstring pineview,$(ARCH))$(findstring x86,$(ARCH)),)
 LIBDIR = lib64
 else
 LIBDIR = lib

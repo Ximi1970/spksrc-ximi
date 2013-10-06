@@ -12,7 +12,7 @@ COMMENT  = Compression Library
 LICENSE  = zlib-license
 
 CONFIGURE_ARGS = --shared --prefix=$(INSTALL_PREFIX)
-ifneq ($(findstring bromolow,$(ARCH))$(findstring cedarview,$(ARCH))$(findstring pineview,$(ARCH))$(findstring evansport,$(ARCH))$(findstring x86,$(ARCH)),)
+ifneq ($(findstring bromolow,$(ARCH))$(findstring cedarview,$(ARCH))$(findstring pineview,$(ARCH))$(findstring x86,$(ARCH)),)
 CONFIGURE_ARGS += --libdir=$(INSTALL_PREFIX)/lib64
 endif
 

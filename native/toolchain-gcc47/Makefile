@@ -34,7 +34,7 @@ else
 $(error This package is part of a toolchain. Please start with the package: spk/toolchain-gcc47 arch-<arch> )
 endif
 
-ifneq ($(findstring $(ARCH), bromolow cedarview pineview evansport x86),)
+ifneq ($(findstring $(ARCH), bromolow cedarview pineview x86),)
 ARCH_LIBDIR=lib64
 else
 ARCH_LIBDIR=lib
