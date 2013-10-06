@@ -32,9 +32,7 @@ CONFIGURE_ARGS += -webkit -javascript-jit -script -scripttools
 CONFIGURE_ARGS += -nomake examples -nomake demos -nomake docs -nomake translations
 CONFIGURE_ARGS += -I$(INSTALL_DIR)$(INSTALL_PREFIX)/include -I$(INSTALL_DIR)$(INSTALL_PREFIX)/include/glib-2.0 -I$(INSTALL_DIR)$(INSTALL_PREFIX)/$(LIBDIR)/glib-2.0/include -L$(INSTALL_DIR)$(INSTALL_PREFIX)/$(LIBDIR)
 
-
 include ../../mk/spksrc.cross-cc.mk
-
 
 .PHONY: myConfigure
 myConfigure:
