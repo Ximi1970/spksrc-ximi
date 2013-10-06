@@ -12,7 +12,7 @@ HOMEPAGE = http://www.midnight-commander.org/
 COMMENT  = GNU Midnight Commander is a visual file manager.  It\\\'s a feature rich full-screen text mode application that allows you to copy, move and delete files and whole directory trees, search for files and run commands in the subshell. Internal viewer and editor are included.
 LICENSE  = GNU GPL
 
-ifneq ($(findstring bromolow,$(ARCH))$(findstring cedarview,$(ARCH))$(findstring x86,$(ARCH)),)
+ifneq ($(findstring bromolow,$(ARCH))$(findstring cedarview,$(ARCH))$(findstring pineview,$(ARCH))$(findstring x86,$(ARCH)),)
 LIBDIR=lib64
 else
 LIBDIR=lib
