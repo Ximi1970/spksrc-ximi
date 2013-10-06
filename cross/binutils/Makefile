@@ -11,15 +11,12 @@ HOMEPAGE = http://www.gnu.org/software/binutils/
 COMMENT  = A collection of binary tools
 LICENSE  = GPLv3, LGPLv3
 
-
 POST_INSTALL_TARGET = myPostInstall
 
-
-GNU_CONFIGURE = 1
-
+CONFIGURE_ARGS = --prefix=$(INSTALL_PREFIX)
+CONFIGURE_ARGS += --host=$(TC_TARGET) --target=$(TC_TARGET) --build=$(MACHTYPE)
 
 include ../../mk/spksrc.cross-cc.mk
-
 
 .PHONY: myPostInstall
 myPostInstall:
