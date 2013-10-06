@@ -10,8 +10,9 @@ Build status of the packages:
 	
 	binutils		ok       ok         ok        ok   ok      ok       ok
 	helloworld		ok       ok         ok        ok   ok      ok       ok
-	helloworld-fascgiqt	ok       -          -         ?    ok      -        -
+	helloworld-fascgiqt	ok       -          -         ok   ok      -        -
 	mc			ok       ok         ok        ok   ok      ok       ok
+	python27		                                   ok
 	toolchain-gcc47		ok       -          -         ok   ok      -        -
 	toolchain-gcc48		ok       -          -         ok   ok      -        -
 	transmission		ok       ok         ok        ok   ok      ok       ok

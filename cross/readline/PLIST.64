@@ -1,0 +1,6 @@
+lnk:lib64/libhistory.so
+lnk:lib64/libhistory.so.6
+lib:lib64/libhistory.so.6.2
+lnk:lib64/libreadline.so
+lnk:lib64/libreadline.so.6
+lib:lib64/libreadline.so.6.2
