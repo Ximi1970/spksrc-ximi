@@ -40,6 +40,16 @@ depend_msg_target:
 pre_depend_target: depend_msg_target
 
 depend_target: $(PRE_DEPEND_TARGET)
+	@if [ "$(PYTHON_DEPENDS)" != "" ] ; then \
+	    cp -f $(WORK_DIR)/tc_vars.mk $(WORK_DIR)/tc_vars.mk.orig ; \
+	    sed -i "s?/usr/local/$(SPK_NAME)?/usr/local/python?g" $(WORK_DIR)/tc_vars.mk ; \
+	    for depend in $(PYTHON_DEPENDS) ; \
+	    do                          \
+		env $(ENV) $(MAKE) -C ../../$$depend INSTALL_PREFIX=$(PYTHON_INSTALL_PREFIX) ; \
+	    done ; \
+	    cp -f $(WORK_DIR)/tc_vars.mk $(WORK_DIR)/tc_vars.mk.python ; \
+	    cp -f $(WORK_DIR)/tc_vars.mk.orig $(WORK_DIR)/tc_vars.mk ; \
+	fi
 	@for depend in $(KERNEL_DEPEND) $(DEPENDS) ; \
 	do                          \
 	  env $(ENV) $(MAKE) -C ../../$$depend ; \

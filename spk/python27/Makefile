@@ -18,7 +18,6 @@ DESCRIPTION_SPN = Lenguaje de programación Python.
 RELOAD_UI = yes
 STARTABLE = no
 DISPLAY_NAME = Python
-CHANGELOG = "1. Add pocketsphinx module"
 
 HOMEPAGE   = http://www.python.org/
 LICENSE    =

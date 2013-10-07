@@ -25,6 +25,7 @@ PYTHONPATH = $(PYTHON_LIB_NATIVE):$(INSTALL_DIR)$(INSTALL_PREFIX)/$(PYTHON_LIB_D
 
 ### Python module rules
 compile_python_module:
+	echo "Python path"$(PYTHONPATH)
 	@$(RUN) PYTHONPATH=$(PYTHONPATH) $(HOSTPYTHON) setup.py build $(BUILD_ARGS)
 
 install_python_module:
