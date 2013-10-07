@@ -33,5 +33,11 @@ myCompile:
 .PHONY: myInstall
 myInstall:
 	@$(RUN) $(MAKE) PREFIX=$(INSTALL_DIR)$(INSTALL_PREFIX) LIBDIR=$(LIBDIR) install
+	ln -sf bzip2 $(STAGING_INSTALL_PREFIX)/bin/bunzip2
+	ln -sf bzip2 $(STAGING_INSTALL_PREFIX)/bin/bzcat
+	ln -sf bzdiff $(STAGING_INSTALL_PREFIX)/bin/bzcmp
+	ln -sf bzgrep $(STAGING_INSTALL_PREFIX)/bin/bzegrep
+	ln -sf bzgrep $(STAGING_INSTALL_PREFIX)/bin/bzfgrep
+	ln -sf bzmore $(STAGING_INSTALL_PREFIX)/bin/bzless
 	@$(RUN) cp libbz2.so.1.0.6 $(INSTALL_DIR)$(INSTALL_PREFIX)/$(LIBDIR)/
 	ln -sf libbz2.so.1.0.6 $(INSTALL_DIR)$(INSTALL_PREFIX)/$(LIBDIR)/libbz2.so.1.0
