@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Package
-PACKAGE="python-virtualenv"
-DNAME="Python Virtualenv"
+PACKAGE="python27-virtualenv"
+DNAME="Python 2.7 Virtualenv"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"

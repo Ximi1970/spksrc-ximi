@@ -5,7 +5,7 @@ PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = http://pypi.python.org/packages/source/v/$(PKG_NAME)
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
-DEPENDS = cross/distribute cross/pip
+DEPENDS =
 
 HOMEPAGE = http://pypi.python.org/pypi/virtualenv
 COMMENT  = Virtual Python Environment builder
@@ -19,3 +19,5 @@ include ../../mk/spksrc.python-module.mk
 myInstall:
 	$(RUN) mkdir -p $(INSTALL_DIR)$(INSTALL_PREFIX)/$(PYTHON_LIB_DIR)/site-packages
 	$(RUN) PYTHONPATH=$(INSTALL_DIR)$(INSTALL_PREFIX)/$(PYTHON_LIB_DIR)/site-packages $(HOSTPYTHON) setup.py install --home=$(INSTALL_DIR)$(INSTALL_PREFIX) --install-purelib=$(INSTALL_DIR)$(INSTALL_PREFIX)/$(PYTHON_LIB_DIR)/site-packages
+	$(RUN) cp -f $(WORK_DIR)/../../../cross/$(PKG_NAME)/PLIST.template $(WORK_DIR)/../../../cross/$(PKG_NAME)/PLIST
+	$(RUN) sed -i -e 's%@PYTHON_SITE_PACKAGES@%$(PYTHON_LIB_DIR)/site-packages%' -e 's%@PYTHON_VERSION@%$(PYTHON_VERSION)%' $(WORK_DIR)/../../../cross/$(PKG_NAME)/PLIST

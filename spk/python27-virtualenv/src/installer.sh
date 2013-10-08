@@ -2,11 +2,12 @@
 
 # Package
 PACKAGE="python27-virtualenv"
-DNAME="Python Virtualenv"
+DNAME="Python 2.7 Virtualenv"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
 PATH="${INSTALL_DIR}/bin:/usr/local/bin:/bin:/usr/bin:/usr/syno/bin"
+PYTHON="/usr/local/python27"
 
 preinst ()
 {
@@ -18,27 +19,45 @@ postinst ()
     # Link
     ln -s ${SYNOPKG_PKGDEST} ${INSTALL_DIR}
 
-    ln -s ${INSTALL_DIR}/bin/easy_install /usr/local/python/bin/easy_install
-    ln -s ${INSTALL_DIR}/bin/easy_install-2.7 /usr/local/python/bin/easy_install-2.7
-    ln -s ${INSTALL_DIR}/bin/pip /usr/local/python/bin/pip
-    ln -s ${INSTALL_DIR}/bin/virtualenv /usr/local/python/bin/virtualenv
-    
+    ln -s ${INSTALL_DIR}/bin/virtualenv ${PYTHON}/bin/virtualenv
+
+    if [ -d ${INSTALL_DIR}/lib ] ; then
+      LIBDIR=lib
+    else
+      LIBDIR=lib64
+    fi
+
+    for i in `ls ${INSTALL_DIR}/${LIBDIR}/python2.7/site-packages` ; do
+      ln -s ${INSTALL_DIR}/${LIBDIR}/python2.7/site-packages/$i ${PYTHON}/${LIBDIR}/python2.7/site-packages/$i
+    done
+
     exit 0
 }
 
 preuninst ()
 {
+   if [ -d ${INSTALL_DIR}/lib ] ; then
+      LIBDIR=lib
+    else
+      LIBDIR=lib64
+    fi
+
+    for i in `ls ${INSTALL_DIR}/${LIBDIR}/python2.7/site-packages` ; do
+      if [ -d $i ] ; then
+        rm -rf ${PYTHON}/${LIBDIR}/python2.7/site-packages/$i
+      else
+        rm -f ${PYTHON}/${LIBDIR}/python2.7/site-packages/$i     
+      fi
+    done
+ 
+    rm -f ${PYTHON}/bin/virtualenv
+
     exit 0
 }
 
 postuninst ()
 {
     # Remove link
-    rm -f /usr/local/python/bin/easy_install
-    rm -f /usr/local/python/bin/easy_install-2.7
-    rm -f /usr/local/python/bin/pip
-    rm -f /usr/local/python/bin/virtualenv
-    
     rm -f ${INSTALL_DIR}
 
     exit 0

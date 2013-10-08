@@ -4,7 +4,7 @@ SPK_REV = 1
 SPK_ICON = src/python.png
 DSM_UI_DIR = app
 
-PYTHON_DEPENDS = cross/python27
+PYTHON_DEPENDS = cross/python27 cross/distribute cross/pip
 DEPENDS = cross/virtualenv
 
 MAINTAINER = Ximi1970
@@ -20,7 +20,7 @@ INSTALLER_SCRIPT = src/installer.sh
 SSS_SCRIPT       = src/dsm-control.sh
 ADDITIONAL_SCRIPTS =
 
-PYTHON_INSTALL_PREFIX = /usr/local/python
+PYTHON_INSTALL_PREFIX = /usr/local/python27
 INSTALL_PREFIX = /usr/local/$(SPK_NAME)
 
 include ../../mk/spksrc.spk.mk
