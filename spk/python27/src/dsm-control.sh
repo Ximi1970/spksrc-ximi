@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Package
-PACKAGE="python"
-DNAME="Python"
+PACKAGE="python27"
+DNAME="Python 2.7"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"

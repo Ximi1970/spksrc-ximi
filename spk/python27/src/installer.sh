@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Package
-PACKAGE="python"
-DNAME="Python"
+PACKAGE="python27"
+DNAME="Python 2.7"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
@@ -22,6 +22,12 @@ postinst ()
     # Install busybox stuff
     ${INSTALL_DIR}/bin/busybox --install ${INSTALL_DIR}/bin
 
+    if [ -d ${INSTALL_DIR}/lib ] ; then
+      LIBDIR=lib
+    else
+      LIBDIR=lib64
+    fi
+
     # Log installation informations
     ${INSTALL_DIR}/bin/python --version > ${INSTALL_DIR}/install.log 2>&1
     echo "" >> ${INSTALL_DIR}/install.log
@@ -29,8 +35,8 @@ postinst ()
     ${INSTALL_DIR}/bin/pip freeze >> ${INSTALL_DIR}/install.log
 
     # Byte-compile in background
-    ${INSTALL_DIR}/bin/python -m compileall -q -f ${INSTALL_DIR}/lib/python2.7 > /dev/null &
-    ${INSTALL_DIR}/bin/python -OO -m compileall -q -f ${INSTALL_DIR}/lib/python2.7 > /dev/null &
+    ${INSTALL_DIR}/bin/python -m compileall -q -f ${INSTALL_DIR}/${LIBDIR}/python2.7 > /dev/null &
+    ${INSTALL_DIR}/bin/python -OO -m compileall -q -f ${INSTALL_DIR}/${LIBDIR}/python2.7 > /dev/null &
 
     exit 0
 }
