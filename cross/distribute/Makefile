@@ -11,4 +11,6 @@ HOMEPAGE = http://pypi.python.org/pypi/distribute
 COMMENT  = Easily download, build, install, upgrade, and uninstall Python packages
 LICENSE  =
 
+INSTALL_ARGS = --install-purelib=$(INSTALL_PREFIX)/$(PYTHON_LIB_DIR)/site-packages
+
 include ../../mk/spksrc.python-module.mk
