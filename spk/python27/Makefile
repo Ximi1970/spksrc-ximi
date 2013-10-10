@@ -19,7 +19,7 @@ DESCRIPTION_FRE = Langage de programmation Python.
 DESCRIPTION_SPN = Lenguaje de programación Python.
 RELOAD_UI = yes
 STARTABLE = no
-DISPLAY_NAME = Python
+DISPLAY_NAME = Python 2.7
 
 HOMEPAGE   = http://www.python.org/
 LICENSE    =
