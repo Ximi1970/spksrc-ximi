@@ -12,7 +12,7 @@ MAINTAINER = Ximi1970
 DESCRIPTION = Python Cheetah package.
 DESCRIPTION_FRE = Python Cheetah package.
 RELOAD_UI = yes
-DISPLAY_NAME = Python 2.7 Cheeta
+DISPLAY_NAME = Python 2.7 Cheetah
 
 HOMEPAGE   = https://github.com/Ximi1970/spksrc
 LICENSE    = GNU GPL
