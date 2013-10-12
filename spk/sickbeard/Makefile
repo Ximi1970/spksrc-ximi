@@ -5,7 +5,7 @@ SPK_ICON = src/sickbeard.png
 DSM_UI_DIR = app
 
 DEPENDS  =
-SPK_DEPENDS = "python27>2.7.5-1:python27-virtualenv>1.9.1-0:python27-cheetah>2.4.4-0"
+SPK_DEPENDS = "python27>2.7.5-0:python27-virtualenv>1.9.1-0:python27-cheetah>2.4.4-0"
 
 MAINTAINER = SynoCommunity
 DESCRIPTION = SickBeard is a PVR for newsgroup users \(with limited torrent support\). It watches for new episodes of your favorite shows and when they are posted it downloads them, sorts and renames them automatically. New episodes can also be indexed for your DiskStation.
