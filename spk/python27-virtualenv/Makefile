@@ -6,6 +6,7 @@ DSM_UI_DIR = app
 
 PYTHON_DEPENDS = cross/python27 cross/distribute cross/pip
 DEPENDS = cross/virtualenv
+SPK_DEPENDS = "python27>2.7.5-1"
 
 MAINTAINER = Ximi1970
 DESCRIPTION = Python Virtualenv package.
@@ -23,9 +24,13 @@ ADDITIONAL_SCRIPTS =
 PYTHON_INSTALL_PREFIX = /usr/local/python27
 INSTALL_PREFIX = /usr/local/$(SPK_NAME)
 
-ifneq ($(ARCH),)
-include work-$(ARCH)/python-cc.mk
 PLIST_TRANSFORM = sed -e 's%@PYTHON_SITE_PACKAGES@%$(PYTHON_LIB_DIR)/site-packages%' -e 's%@PYTHON_VERSION@%$(PYTHON_VERSION)%'
-endif
+
+PRE_COPY_TARGET = myPreCopy
 
 include ../../mk/spksrc.spk.mk
+
+.PHONY: myPreCopy
+myPreCopy:
+	$(eval PYTHON_VERSION := $(shell cat $(WORK_DIR)/python-cc.mk | grep PYTHON_VERSION | sed -e 's/.*=//'))
+	$(eval PYTHON_LIB_DIR := $(shell cat $(WORK_DIR)/python-cc.mk | grep PYTHON_LIB_DIR | sed -e 's/.*=//'))

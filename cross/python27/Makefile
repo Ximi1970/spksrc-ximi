@@ -15,11 +15,11 @@ HOMEPAGE = http://www.python.org/
 COMMENT  = Python Programming Language
 LICENSE  =
 
-ifneq ($(findstring bromolow,$(ARCH))$(findstring cedarview,$(ARCH))$(findstring pineview,$(ARCH))$(findstring x86,$(ARCH)),)
-LIBDIR=lib64
-else
+#ifneq ($(findstring bromolow,$(ARCH))$(findstring cedarview,$(ARCH))$(findstring pineview,$(ARCH))$(findstring x86,$(ARCH)),)
+#LIBDIR=lib64
+#else
 LIBDIR=lib
-endif
+#endif
 
 GNU_CONFIGURE = 1
 ADDITIONAL_CFLAGS = -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
@@ -56,7 +56,7 @@ myPreConfigure:
 	cp $(PYTHON_NATIVE) $(HOSTPYTHON)
 	cp $(PGEN_NATIVE) $(HOSTPGEN)
 	$(RUN) autoreconf
-
+	
 .PHONY: myCompile
 myCompile:
 	$(RUN) _PYTHON_HOST_PLATFORM=$(TC_TARGET) $(MAKE)

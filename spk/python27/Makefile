@@ -24,11 +24,11 @@ DISPLAY_NAME = Python 2.7
 HOMEPAGE   = http://www.python.org/
 LICENSE    =
 
-ifneq ($(findstring bromolow,$(ARCH))$(findstring cedarview,$(ARCH))$(findstring pineview,$(ARCH))$(findstring x86,$(ARCH)),)
-LIBDIR=lib64
-else
+#ifneq ($(findstring bromolow,$(ARCH))$(findstring cedarview,$(ARCH))$(findstring pineview,$(ARCH))$(findstring x86,$(ARCH)),)
+#LIBDIR=lib64
+#else
 LIBDIR=lib
-endif
+#endif
 
 INSTALLER_SCRIPT = src/installer.sh
 SSS_SCRIPT       = src/dsm-control.sh
@@ -38,7 +38,7 @@ INSTALL_PREFIX = /usr/local/$(SPK_NAME)
 
 PYTHON_LIB_DIR = $(LIBDIR)/python$(SPK_SHORT_VERS)
 
-PLIST_TRANSFORM = sed -e 's%@PYTHON_SITE_PACKAGES@%$(PYTHON_LIB_DIR)/site-packages%' -e 's%@PYTHON_VERSION@%$(SPK_SHORT_VERS)%'
+PLIST_TRANSFORM = sed -e 's%:lib/%:$(LIBDIR)/%' -e 's%@PYTHON_SITE_PACKAGES@%$(PYTHON_LIB_DIR)/site-packages%' -e 's%@PYTHON_VERSION@%$(SPK_SHORT_VERS)%'
 
 POST_STRIP_TARGET = python_cleanup
 
