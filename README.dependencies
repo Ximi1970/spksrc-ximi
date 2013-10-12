@@ -1,0 +1,149 @@
+binutils
+
+	cross/binutils
+
+
+helloworld
+
+	cross/helloworld
+
+
+helloworld-fastcgiqt
+
+	cross/libqt4-embedded
+		cross/glib
+			native/glib
+				native/libffi
+			cross/zlib
+			cross/libffi
+		cross/openssl
+			cross/zlib
+		cross/libpng
+			cross/zlib
+		cross/libmng
+			cross/zlib
+			cross/libjpeg
+			cross/lcms2
+		cross/libjpeg
+		cross/libtiff
+		cross/sqlite
+			cross/zlib
+			cross/speex
+				cross/libogg
+		cross/libxml2
+			cross/zlib
+		cross/freetype2
+			cross/zlib
+	cross/fastcgiqt
+		cross/libqt4-embedded
+
+
+mc
+
+	cross/mc
+		cross/glib
+			native/glib
+				native/libffi
+			cross/zlib
+			cross/libffi
+		cross/ncursusw
+		cross/slang
+			cross/zlib
+			cross/libpng
+
+
+python27
+
+	cross/busybox
+	cross/python27
+		cross/zlib
+		cross/openssl
+		cross/sqlite
+		cross/readline
+		cross/ncursus
+		cross/bzip2
+		natice/python27
+	cross/distribute
+	cross/pip
+
+
+python27-cheetah
+
+	cross/python27
+		cross/zlib
+		cross/openssl
+		cross/sqlite
+		cross/readline
+		cross/ncursus
+		cross/bzip2
+		natice/python27
+	cross/distribute
+	cross/pip
+	cross/cheetah
+
+
+python27-virtualenv
+
+	cross/python27
+		cross/zlib
+		cross/openssl
+		cross/sqlite
+		cross/readline
+		cross/ncursus
+		cross/bzip2
+		natice/python27
+	cross/distribute
+	cross/pip
+	cross/virtualenv
+
+
+sickbeard
+
+
+sickbeard-custom
+
+
+toolchain-gcc47
+
+	cross/toolchain-gcc47
+		native/toolchain-gcc47
+			native/gcc47
+				native/glibc
+					native/gcc47-bootstrap
+						native/gmp
+						native/mpfr
+						native/mpc
+							native/gmp
+							native/mpfr
+						native/binutls
+
+
+toolchain-gcc48
+
+	cross/toolchain-gcc48
+		native/toolchain-gcc48
+			native/gcc48
+				native/glibc
+					native/gcc47-bootstrap
+						native/gmp
+						native/mpfr
+						native/mpc
+							native/gmp
+							native/mpfr
+						native/binutls
+
+
+transmission
+
+	cross/busybox
+	cross/transmission
+		cross/zlib
+		cross/openssl
+			cross/zlib
+		cross/curl
+			cross/zlib
+			cross/openssl
+				cross/zlib
+		cross/libevent
+			cross/openssl
+				cross/zlib
