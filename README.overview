@@ -12,10 +12,13 @@ Build status of the packages:
 	helloworld		ok       ok         ok        ok   ok      ok       ok
 	helloworld-fascgiqt	ok       -          -         ok   ok      -        -
 	mc			ok       ok         ok        ok   ok      ok       ok
-	python27		                                   ok
+	python27		ok                                 ok
+	python27-cheetah	ok                                 ok
+	python27-virtualenv	ok                                 ok
+	sickbeard		ok       ok         ok        ok   ok      ok       ok
 	toolchain-gcc47		ok       -          -         ok   ok      -        -
 	toolchain-gcc48		ok       -          -         ok   ok      -        -
 	transmission		ok       ok         ok        ok   ok      ok       ok
 
-	
+
 Packages have been build on an openSuSE 12.3 x86_64 system using a Core i7 2630QM.
