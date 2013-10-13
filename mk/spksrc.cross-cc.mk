@@ -50,16 +50,11 @@ cat_PLIST:
 	do                          \
 	  $(MAKE) WORK_DIR=$(WORK_DIR) --no-print-directory -C ../../$$depend cat_PLIST ; \
 	done
-	@if [ -f PLIST.64 ] && [ "$(TC_TARGET)" == "x86_64-linux-gnu" ] ; \
-	then \
-	  cat PLIST.64 ; \
-	else \
-	if [ -f PLIST ] ; \
+	@if [ -f PLIST ] ; \
 	then \
 	  cat PLIST ; \
 	else \
 	  $(MSG) "No PLIST for $(NAME)" >&2; \
-	fi \
 	fi
 
 ### Clean rules

@@ -15,9 +15,17 @@ STARTABLE = no
 HOMEPAGE   = http://www.midnight-commander.org/
 LICENSE    = GNU GPL
 
+ifneq ($(findstring bromolow,$(ARCH))$(findstring cedarview,$(ARCH))$(findstring pineview,$(ARCH))$(findstring x86,$(ARCH)),)
+LIBDIR=lib64
+else
+LIBDIR=lib
+endif
+
 INSTALLER_SCRIPT = src/installer.sh
 SSS_SCRIPT       = src/dsm-control.sh
 ADDITIONAL_SCRIPTS = 
+
+PLIST_TRANSFORM = sed -e 's%@MULTILIB@%$(LIBDIR)%'
 
 INSTALL_PREFIX = /usr/local/$(SPK_NAME)
 

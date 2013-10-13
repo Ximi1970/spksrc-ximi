@@ -9,5 +9,5 @@ bin:bin/bzip2
 bin:bin/bzip2recover
 lnk:bin/bzless
 bin:bin/bzmore
-lnk:lib/libbz2.so.1.0
-lib:lib/libbz2.so.1.0.6
+lnk:@MULTILIB@/libbz2.so.1.0
+lib:@MULTILIB@/libbz2.so.1.0.6

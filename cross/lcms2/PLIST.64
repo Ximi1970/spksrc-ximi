@@ -1,6 +1,0 @@
-bin:bin/linkicc
-bin:bin/psicc
-bin:bin/transicc
-lnk:lib64/liblcms2.so
-lnk:lib64/liblcms2.so.2
-lib:lib64/liblcms2.so.2.0.4

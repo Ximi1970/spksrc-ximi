@@ -1,4 +1,0 @@
-lnk:lib64/libpng16.so
-lnk:lib64/libpng16.so.16
-lib:lib64/libpng16.so.16.2.0
-lnk:lib64/libpng.so

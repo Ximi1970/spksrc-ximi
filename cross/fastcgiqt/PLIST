@@ -10,6 +10,6 @@ bin:cgi-bin/PrefixExample.cgi
 bin:cgi-bin/ThreadedDumper.cgi
 bin:cgi-bin/XsltExample.cgi
 rsc:cgi-bin/example.xsl
-lnk:lib/libFastCgiQt0.so
-lnk:lib/libFastCgiQt0.so.0
-lib:lib/libFastCgiQt0.so.0.0.1
+lnk:@MULTILIB@/libFastCgiQt0.so
+lnk:@MULTILIB@/libFastCgiQt0.so.0
+lib:@MULTILIB@/libFastCgiQt0.so.0.0.1

@@ -1,4 +1,0 @@
-bin:bin/curl
-lnk:lib64/libcurl.so
-lnk:lib64/libcurl.so.4
-lib:lib64/libcurl.so.4.3.0

@@ -1,3 +1,0 @@
-lnk:lib64/libffi.so
-lnk:lib64/libffi.so.6
-lib:lib64/libffi.so.6.0.0
