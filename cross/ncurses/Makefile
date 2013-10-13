@@ -13,14 +13,7 @@ LICENSE  = http://www.gnu.org/licenses/gpl.html
 
 GNU_CONFIGURE = 1
 CONFIGURE_ARGS  = --with-shared --enable-rpath --without-manpages --without-tests --enable-overwrite
-CONFIGURE_ARGS += --disable-home-terminfo --with-default-terminfo-dir=$(INSTALL_PREFIX)/share/terminfo
+CONFIGURE_ARGS += --disable-home-terminfo --with-default-terminfo-dir=$(INSTALL_DIR)$(INSTALL_PREFIX)/share/terminfo
 CONFIGURE_ARGS += --with-terminfo-dirs=$(INSTALL_PREFIX)/share/terminfo
 
-#INSTALL_TARGET = myInstall
-
 include ../../mk/spksrc.cross-cc.mk
-
-#.PHONY: myInstall
-#myInstall:
-#	$(RUN) make install DESTDIR=$(INSTALL_DIR)
-
