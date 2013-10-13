@@ -1,0 +1,3 @@
+lnk:@MULTILIB@/libsigc-2.0.so
+lnk:@MULTILIB@/libsigc-2.0.so.0
+lib:@MULTILIB@/libsigc-2.0.so.0.0.0

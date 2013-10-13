@@ -51,6 +51,21 @@ mc
 			cross/zlib
 			cross/libpng
 
+			
+nzbget
+
+	cross/busybox
+	cross/unrar
+	cross/nzbget
+		cross/libxml2
+			cross/zlib
+		cross/ncursus
+		cross/libsigc++
+		cross/libpar2
+			cross/libsigc++
+		cross/openssl
+			cross/zlib
+
 
 python27
 
@@ -100,9 +115,6 @@ python27-virtualenv
 sickbeard
 
 
-sickbeard-custom
-
-
 toolchain-gcc47
 
 	cross/toolchain-gcc47
@@ -147,3 +159,5 @@ transmission
 		cross/libevent
 			cross/openssl
 				cross/zlib
+
+
