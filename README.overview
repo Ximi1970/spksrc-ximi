@@ -21,6 +21,7 @@ Build status of the packages:
 	sickbeard		ok       ok         ok        ok   ok      ok       ok
 	toolchain-gcc47		ok       -          -         ok   ok      -        -
 	toolchain-gcc48		ok       -          -         ok   ok      -        -
+	tvheadend		ok       ok         ok        ok   ok      ok       ok
 	transmission		ok       ok         ok        ok   ok      ok       ok
 
 
