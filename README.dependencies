@@ -156,6 +156,12 @@ toolchain-gcc48
 						native/binutls
 
 
+tvheadend
+
+	cross/tvheadend
+		cross/openssl
+
+
 transmission
 
 	cross/busybox
