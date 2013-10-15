@@ -51,7 +51,10 @@ mc
 			cross/zlib
 			cross/libpng
 
-			
+
+nzbconfig
+
+
 nzbget
 
 	cross/busybox
@@ -111,6 +114,14 @@ python27-virtualenv
 	cross/pip
 	cross/virtualenv
 
+
+sabnzbd
+
+	cross/busybox
+	cross/par2cmdline
+	cross/unrar
+	cross/sabnzbd
+	
 
 sickbeard
 

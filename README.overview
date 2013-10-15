@@ -12,10 +12,12 @@ Build status of the packages:
 	helloworld		ok       ok         ok        ok   ok      ok       ok
 	helloworld-fascgiqt	ok       -          -         ok   ok      -        -
 	mc			ok       ok         ok        ok   ok      ok       ok
-	nzbget			ok                                 ok
-	python27		ok                                 ok
-	python27-cheetah	ok                                 ok
-	python27-virtualenv	ok                                 ok
+	nzbconfig		ok       ok         ok        ok   ok      ok       ok
+	nzbget			ok       ok         ok        ok   ok      ok       ok
+	python27		ok       ok         ok        ok   ok      ok       ok
+	python27-cheetah	ok       ok         ok        ok   ok      ok       ok
+	python27-virtualenv	ok       ok         ok        ok   ok      ok       ok
+	sabnzbd			ok       ok         ok        ok   ok      ok       ok
 	sickbeard		ok       ok         ok        ok   ok      ok       ok
 	toolchain-gcc47		ok       -          -         ok   ok      -        -
 	toolchain-gcc48		ok       -          -         ok   ok      -        -
