@@ -96,3 +96,11 @@ dsm43:
 	@echo "Setting up kernels for DSM 4.3"
 	@rm -f kernel
 	@ln -sf kernel-4.3 kernel
+
+dsm50beta:
+	@echo "Setting up toolchains for DSM 5.0 Beta"
+	@rm -f toolchains
+	@ln -sf toolchains-5.0-beta toolchains
+	@echo "Setting up kernels for DSM 5.0 Beta"
+	@rm -f kernel
+	@ln -sf kernel-5.0-beta kernel
