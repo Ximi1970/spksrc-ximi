@@ -28,13 +28,26 @@ What have I done?
 ^^^^^^^^^^^^^^^^^
 
 * You cloned the repository
+* Setup spkrc for de default version DSM 5.0 Beta
 * Went into the directory of the SPK for transmission
 * Started building the SPK for the architecture 88f6281
 
+  * To list all available DSM versions use ``ls -d toolchains-*`` from within the ``spkrc`` directory.
   * To list all available architectures use ``ls toolchains`` from within the ``spkrc`` directory. Remove the prefix syno- to have the actual architecture.
   * An overview of which architecture is used per Synology model can be found on the wiki page `Architecture per Synology model`_
 
 At the end of the process, the SPK will be available in ``spksrc/packages/``
+
+If you want to use DSM 4.3, run from within the spkrc directory::
+
+	make dsm43
+
+Or the DSM 5.0 Beta version::
+
+	make dsm50beta
+
+The toolchain and kernel directory will be relink to the requested version.
+
 
 What is spksrc doing?
 ^^^^^^^^^^^^^^^^^^^^^
