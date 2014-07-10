@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Package
-PACKAGE="toolchain-gcc47"
-DNAME="Gcc 4.7 / Glibc 2.19 toolchain"
+PACKAGE="toolchain-gcc49"
+DNAME="Gcc 4.9 / Glibc 2.19 toolchain"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
