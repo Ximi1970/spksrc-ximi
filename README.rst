@@ -46,7 +46,7 @@ Or the DSM 5.0 version::
 
 	make dsm50
 
-The toolchain and kernel directory will be relink to the requested version.
+The toolchain and kernel directory will be linked to the requested version.
 
 
 What is spksrc doing?
