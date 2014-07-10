@@ -1,15 +1,15 @@
 GCC_VER = 48
 SPK_NAME = toolchain-gcc$(GCC_VER)
-SPK_VERS = 4.8.1
+SPK_VERS = 4.8.3
 SPK_REV = 1
 SPK_ICON = src/toolchain.png
 
 DEPENDS = cross/$(SPK_NAME)
 
 MAINTAINER = SynoCommunity \(Ximi1970\)
-DESCRIPTION = Gcc 4.8 / Glibc 2.18 toolchain.
+DESCRIPTION = Gcc 4.8 / Glibc 2.19 toolchain.
 RELOAD_UI = no
-DISPLAY_NAME = Gcc 4.8 / Glibc 2.18 toolchain. 
+DISPLAY_NAME = Gcc 4.8 / Glibc 2.19 toolchain. 
 STARTABLE = no
 
 HOMEPAGE   = https://github.com/SynoCommunity/spksrc
