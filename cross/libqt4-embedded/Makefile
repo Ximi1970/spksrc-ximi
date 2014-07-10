@@ -1,5 +1,5 @@
 PKG_NAME = qt-everywhere-opensource-src
-PKG_VERS = 4.8.5
+PKG_VERS = 4.8.6
 PKG_EXT = tar.gz
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 PKG_DIST_NAME = $(PKG_DIR).$(PKG_EXT)
