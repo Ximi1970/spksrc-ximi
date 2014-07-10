@@ -1,0 +1,11 @@
+diff -urN include.orig/asm-generic/Kbuild include/asm-generic/Kbuild
+--- include.orig/asm-generic/Kbuild	2014-03-14 15:09:16.000000000 +0100
++++ include/asm-generic/Kbuild	2014-07-10 14:25:32.121384366 +0200
+@@ -22,6 +22,7 @@
+ header-y += siginfo.h
+ header-y += signal-defs.h
+ header-y += signal.h
++header-y += sizes.h
+ header-y += socket.h
+ header-y += sockios.h
+ header-y += stat.h
