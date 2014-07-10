@@ -1,5 +1,5 @@
 PKG_NAME = gcc
-PKG_VERS = 4.7.3
+PKG_VERS = 4.7.4
 PKG_EXT = tar.bz2
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = ftp://ftp.gnu.org/pub/gnu/gcc/gcc-$(PKG_VERS)
