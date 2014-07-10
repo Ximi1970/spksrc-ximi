@@ -28,7 +28,7 @@ What have I done?
 ^^^^^^^^^^^^^^^^^
 
 * You cloned the repository
-* Setup spkrc for de default version DSM 5.0 Beta
+* Setup spkrc for de default version DSM 5.0
 * Went into the directory of the SPK for transmission
 * Started building the SPK for the architecture 88f6281
 
@@ -42,9 +42,9 @@ If you want to use DSM 4.3, run from within the spkrc directory::
 
 	make dsm43
 
-Or the DSM 5.0 Beta version::
+Or the DSM 5.0 version::
 
-	make dsm50beta
+	make dsm50
 
 The toolchain and kernel directory will be relink to the requested version.
 
