@@ -3,7 +3,7 @@ TC_NAME = syno-pineview
 TC_DIST_NAME = gcc420_glibc236_x64-GPL.tgz
 
 TC_EXT = tgz
-TC_DIST_SITE = http://sourceforge.net/projects/dsgpl/files/DSM%204.3%20Tool%20Chains/Intel%20x86%20Linux%203.2.40%20%28Cedarview%29
+TC_DIST_SITE = http://sourceforge.net/projects/dsgpl/files/DSM%204.3%20Tool%20Chains/Intel%20x86%20Linux%203.2.40%20%28Pineview%29
 
 TC_BASE_DIR = x86_64-linux-gnu
 TC_PREFIX = x86_64-linux-gnu
