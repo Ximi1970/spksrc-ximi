@@ -2,7 +2,7 @@ How to use the spk toolchain-gcc47 package
 ==========================================
 
 Toolchain-gcc47 is a package which creates a new toolchain for a synology architecture.
-The new toolchain consists of binutils 2.23.2, gcc 4.7.3 and glibc 2.18.
+The new toolchain consists of binutils 2.24, gcc 4.7.4 and glibc 2.19.
 
 Currently only these architecture are enabled:
 
@@ -23,11 +23,10 @@ Status of the toolchains::
 Generating the toolchain
 ------------------------
 
-Let's start with cloning the repository and switch to the experimental branch::
+Let's start with cloning the repository::
 
     git clone https://github.com/Ximi1970/spksrc.git
     cd spksrc
-    git checkout experimental
     make setup
     
 Now we can build the package::
@@ -53,7 +52,7 @@ What is generated and what can we do now?
     make arch-cedarview-gcc47
 
 * Packages build with the new toolchain will get the extension "<package_name>_cederview-gcc47_<version>.spk".
-* There is a "toolchain-gcc47_cedarview_4.7.3" package in the spksrc/packages directory. You will need
+* There is a "toolchain-gcc47_cedarview_4.7.4" package in the spksrc/packages directory. You will need
   to install this package on your synology if you want to run the packages compiled with the new toolchain.
 
   
