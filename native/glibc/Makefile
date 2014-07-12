@@ -1,5 +1,5 @@
 PKG_NAME = glibc
-PKG_VERS = 2.18
+PKG_VERS = 2.19
 PKG_EXT = tar.bz2
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = ftp://ftp.gnu.org/pub/gnu/libc
@@ -10,6 +10,10 @@ DEPENDS = native/binutils native/gcc47-bootstrap
 else
 ifeq ($(MAKE_TOOLCHAIN_GCC_VER),48)
 DEPENDS = native/binutils native/gcc48-bootstrap
+else
+ifeq ($(MAKE_TOOLCHAIN_GCC_VER),49)
+DEPENDS = native/binutils native/gcc49-bootstrap
+endif
 endif
 endif
 
@@ -33,13 +37,13 @@ INSTALL_TARGET = myInstall
 
 
 ifeq ($(MAKE_TOOLCHAIN_TARGET),)
-$(error This package is part of a toolchain. Please start with the package: spk/toolchain-gcc[47|48] arch-<arch> )
+$(error This package is part of a toolchain. Please start with the package: spk/toolchain-gcc[47|48|49] arch-<arch> )
 endif
 
-ifneq ($(findstring $(MAKE_TOOLCHAIN_GCC_VER), 47 48),)
+ifneq ($(findstring $(MAKE_TOOLCHAIN_GCC_VER), 47 48 49),)
 TOOLCHAIN_PATH = $(WORK_DIR)/../../../toolchains/syno-$(ARCH)-gcc$(MAKE_TOOLCHAIN_GCC_VER)/work/$(MAKE_TOOLCHAIN_TARGET)
 else
-$(error This package is part of a toolchain. Please start with the package: spk/toolchain-gcc[47|48] arch-<arch> )
+$(error This package is part of a toolchain. Please start with the package: spk/toolchain-gcc[47|48|49] arch-<arch> )
 endif
 
 ifneq ($(findstring $(ARCH), bromolow cedarview pineview x86),)

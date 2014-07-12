@@ -1,5 +1,5 @@
 PKG_NAME = binutils
-PKG_VERS = 2.23.2
+PKG_VERS = 2.24
 PKG_EXT = tar.bz2
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = http://ftp.gnu.org/gnu/binutils
@@ -18,13 +18,13 @@ INSTALL_TARGET = myInstall
 
 
 ifeq ($(MAKE_TOOLCHAIN_TARGET),)
-$(error This package is part of a toolchain. Please start with the package: spk/toolchain-gcc[47|48] arch-<arch> )
+$(error This package is part of a toolchain. Please start with the package: spk/toolchain-gcc[47|48|49] arch-<arch> )
 endif
 
-ifneq ($(findstring $(MAKE_TOOLCHAIN_GCC_VER), 47 48),)
+ifneq ($(findstring $(MAKE_TOOLCHAIN_GCC_VER), 47 48 49),)
 TOOLCHAIN_PATH = $(WORK_DIR)/../../../toolchains/syno-$(ARCH)-gcc$(MAKE_TOOLCHAIN_GCC_VER)/work/$(MAKE_TOOLCHAIN_TARGET)
 else
-$(error This package is part of a toolchain. Please start with the package: spk/toolchain-gcc[47|48] arch-<arch> )
+$(error This package is part of a toolchain. Please start with the package: spk/toolchain-gcc[47|48|49] arch-<arch> )
 endif
 
 

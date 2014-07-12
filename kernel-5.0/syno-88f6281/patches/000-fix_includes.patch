@@ -1,0 +1,11 @@
+diff -urN include.orig/linux/Kbuild include/linux/Kbuild
+--- include.orig/linux/Kbuild	2014-03-14 15:00:43.000000000 +0100
++++ include/linux/Kbuild	2014-07-10 09:58:46.756467640 +0200
+@@ -127,6 +127,7 @@
+ header-y += nfs4_mount.h
+ header-y += nfs_mount.h
+ header-y += nl80211.h
++header-y += numa.h
+ header-y += param.h
+ header-y += pci_regs.h
+ header-y += perf_event.h

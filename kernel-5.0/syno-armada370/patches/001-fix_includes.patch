@@ -1,0 +1,17 @@
+diff -urN arch.orig/arm/include/asm/Kbuild arch/arm/include/asm/Kbuild
+--- arch.orig/arm/include/asm/Kbuild	2014-03-14 15:09:29.000000000 +0100
++++ arch/arm/include/asm/Kbuild	2014-07-10 14:24:49.263122786 +0200
+@@ -1,6 +1,13 @@
+ include include/asm-generic/Kbuild.asm
+ 
+ header-y += hwcap.h
++header-y += glue.h
++header-y += memory.h
++header-y += pgtable-2level.h
++header-y += pgtable-2level-types.h
++header-y += pgtable-3level.h
++header-y += pgtable-3level-types.h
++header-y += sizes.h
+ unifdef-y += page-nommu.h
+ unifdef-y += memory.h
+ unifdef-y += sizes.h
