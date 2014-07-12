@@ -98,13 +98,18 @@ Once you have successfully cross compiled the new package, to create the SPK:
 * Edit the stuff to fit your needs
 
 After all that hard work, submit a pull request to have your work merged with the main repository
-on GitHub and published in `SynoCommunity's repository`_.
+on GitHub.
 
 If you are not familiar with git or GitHub, please refer to the excellent `GitHub help pages`_.
 
 Donate
 ------
 If you like spksrc and packages made out of it, please consider making a donation to these authors:
+
+* Ximi1970
+
+  .. image:: https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif
+    :target: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=93M5JMB4KEZE2
 
 * Diaoul
 
@@ -124,11 +129,6 @@ If you like spksrc and packages made out of it, please consider making a donatio
   .. image:: https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif
     :target: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=T6BU3QXYH4CMG
 
-* Ximi1970
-
-  .. image:: https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif
-    :target: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=93M5JMB4KEZE2
-
     
     
 Bugs
@@ -142,6 +142,6 @@ When not explicitly set, files are placed under a `3 clause BSD license`_
 
 .. _Architecture per Synology model: https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model
 .. _3 clause BSD license: http://www.opensource.org/licenses/BSD-3-Clause
-.. _bug tracker: https://github.com/SynoCommunity/spksrc/issues
+.. _bug tracker: https://github.com/Ximi1970/spksrc-ximi/issues
 .. _GitHub help pages: https://help.github.com
 .. _SynoCommunity's repository: http://www.synocommunity.com/
