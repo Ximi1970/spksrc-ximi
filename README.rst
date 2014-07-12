@@ -98,7 +98,7 @@ Once you have successfully cross compiled the new package, to create the SPK:
 * Edit the stuff to fit your needs
 
 After all that hard work, submit a pull request to have your work merged with the main repository
-on GitHub and published in `SynoCommunity's repository`_.
+on GitHub.
 
 If you are not familiar with git or GitHub, please refer to the excellent `GitHub help pages`_.
 
