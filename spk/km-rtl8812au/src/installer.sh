@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Package
-PACKAGE="km-rtl8812au-rtl8821au"
+PACKAGE="km-rtl8812au"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"

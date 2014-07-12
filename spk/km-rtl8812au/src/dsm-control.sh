@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Package
-PACKAGE="km-rtl8812au-rtl8821au"
-DNAME="rt8812au/rtl8821au Kernel Module"
+PACKAGE="km-rtl8812au"
+DNAME="8812au Kernel Module"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"

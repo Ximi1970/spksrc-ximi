@@ -1,4 +1,4 @@
-PKG_NAME = rtl8812au_rtl8821au
+PKG_NAME = rtl8812au
 PKG_VERS =
 PKG_EXT = tar.gz
 PKG_DOWNLOAD_METHOD = git
@@ -13,7 +13,7 @@ REQ_KERNEL = 1
 DEPENDS =
 
 HOMEPAGE = https://github.com/abperiasamy/rtl8812AU_8821AU_linux
-COMMENT  = rtl8812AU_8821AU linux kernel driver for AC1200 (801.11ac) Wireless Dual-Band USB Adapter
+COMMENT  = rtl8812AU linux kernel driver for AC1200 (801.11ac) Wireless Dual-Band USB Adapter
 
 LICENSE  = GPLv2
 
