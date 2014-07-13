@@ -4,6 +4,7 @@ SPK_REV = 1
 SPK_ICON = src/tux-icon.png
 DSM_UI_DIR = app
 BETA = 1
+BETA_REPORT_URL = "https://github.com/Ximi1970/spksrc-ximi/issues"
 
 DEPENDS = cross/km-rtl8812au
 
@@ -22,4 +23,14 @@ ADDITIONAL_SCRIPTS =
 
 INSTALL_PREFIX = /usr/local/$(SPK_NAME)
 
+POST_STRIP_TARGET = extra_install
+
+
 include ../../mk/spksrc.spk.mk
+
+
+
+.PHONY: extra_install
+extra_install:
+	install -m 755 -d $(STAGING_DIR)/system
+	install -m 644 src/usb.wireless.table $(STAGING_DIR)/system
