@@ -73,6 +73,12 @@ $(DIGESTS_FILE):
 kernel_install_header_target:
 	$(RUN) $(MAKE) ARCH=$(ARCH) headers_check
 	$(RUN) $(MAKE) ARCH=$(ARCH) INSTALL_HDR_PATH=$(WORK_DIR) headers_install
+ifneq ($(strip $(PKG_EXTRACT_WIFI)),)
+ifneq ($(strip $(SYNO_WIFI_CONFIG)),)
+	$(RUN) echo ; cd ../compat-wireless/v3.12.x ; cp $(SYNO_WIFI_CONFIG) .config ; $(MAKE) V=1 KLIB_BUILD=$(KERNEL_DIR) oldconfig ; $(MAKE) V=1 KLIB_BUILD=$(KERNEL_DIR)
+endif
+endif
+	exit 1 
 
 kernel_module_compile_target:
 	$(RUN) $(MAKE) $(MAKE_OPT) modules
@@ -80,7 +86,7 @@ kernel_module_compile_target:
 kernel_extract_target:
 	mkdir -p $(KERNEL_DIR)
 	rm -rf $(KERNEL_DIR)
-	tar -xpf $(DIST_FILE) -C $(EXTRACT_PATH) $(PKG_EXTRACT)
+	tar -xpf $(DIST_FILE) -C $(EXTRACT_PATH) $(PKG_EXTRACT) $(PKG_EXTRACT_WIFI)
 	mv $(EXTRACT_PATH)/$(PKG_EXTRACT) $(KERNEL_DIR)
 
 kernel_configure_target: 

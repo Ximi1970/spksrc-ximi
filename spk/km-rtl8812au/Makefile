@@ -1,5 +1,5 @@
 SPK_NAME = km-rtl8812au
-SPK_VERS = 1.0
+SPK_VERS = 1.1
 SPK_REV = 1
 SPK_ICON = src/tux-icon.png
 DSM_UI_DIR = app

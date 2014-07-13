@@ -35,7 +35,7 @@ postinst ()
     #
     cat ${INSTALL_DIR}/system/usb.wireless.table >> /usr/syno/hotplug/usb.wireless.table
 
-    sed -i 's/\(^ATH_MODULES.*\)/RTL8812AU_MODULES="8812au"\n\1/' /usr/syno/hotplug/usb.wireless.function
+    sed -i 's/\(^ATH_MODULES.*\)/RTL8812AU_MODULES="\$\{WIRELESS_MODULE\} 8812au"\n\1/' /usr/syno/hotplug/usb.wireless.function
     sed -i 's/\(^\tcase "$modules" in\)/\1\n\t\t8812au)\t\t\t\t\t##RTL8812AU\n\t\t\tmodules="${RTL8812AU_MODULES}"\t##RTL8812AU\n\t\t\t;;\t\t\t\t##RTL8812AU/' /usr/syno/hotplug/usb.wireless.function
     
     exit 0
