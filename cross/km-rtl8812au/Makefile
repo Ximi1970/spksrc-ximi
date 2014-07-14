@@ -29,9 +29,9 @@ define \n
 
 
 endef
-ifneq ($(findstring $(ARCH),88f6281 88f5281 powerpc ppc824x ppc853x ppc854x qoriq ),)
-$(error ${\n}${\n}Architecture not supported.${\n}${\n})
-endif
+#ifneq ($(findstring $(ARCH),88f6281 88f5281 powerpc ppc824x ppc853x ppc854x qoriq ),)
+#$(error ${\n}${\n}Architecture not supported.${\n}${\n})
+#endif
 
 
 include ../../mk/spksrc.cross-cc.mk
@@ -44,7 +44,7 @@ myConfigure:
 
 .PHONY: myCompile
 myCompile:
-	$(RUN) make USER_EXTRA_CFLAGS="-DCONFIG_LITTLE_ENDIAN" CROSS_COMPILE="$(TC_PATH)$(TC_TARGET)-" KSRC=$(KERNEL_DIR) MODDESTDIR=$(INSTALL_DIR)$(INSTALL_PREFIX)/modules
+	$(RUN) LDFLAGS= make USER_EXTRA_CFLAGS="-DCONFIG_LITTLE_ENDIAN" CROSS_COMPILE="$(TC_PATH)$(TC_TARGET)-" KSRC=$(KERNEL_DIR) MODDESTDIR=$(INSTALL_DIR)$(INSTALL_PREFIX)/modules
 
 .PHONY: myInstall
 myInstall:
