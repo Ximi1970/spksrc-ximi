@@ -13,7 +13,7 @@ COOKIE_PREFIX = $(PKG_NAME)-
 DIST_FILE     = $(DISTRIB_DIR)/$(PKG_DIST_NAME)
 DIST_EXT      = $(PKG_EXT)
 COMPILE_TARGET = kernel_module_compile_target
-INSTALL_TARGET = kernel_install_header_target
+INSTALL_TARGET = kernel_install_target
 EXTRACT_TARGET = kernel_extract_target
 CONFIGURE_TARGET = kernel_configure_target
 COPY_TARGET = nop
@@ -29,7 +29,7 @@ KERNEL_ENV += PATH=$$PATH
 RUN = cd $(KERNEL_DIR) && env -i $(KERNEL_ENV)
 MSG = echo "===>   "
 
-.PHONY: kernel_install_header_target kernel_module_compile_target kernel_extract_target kernel_configure_target
+.PHONY: kernel_install_target kernel_module_compile_target kernel_extract_target kernel_configure_target
 
 include ../../mk/spksrc.download.mk
 
@@ -70,18 +70,27 @@ $(DIGESTS_FILE):
 	  echo "$(PKG_DIST_NAME) $$type `$$tool $(DISTRIB_DIR)/$(PKG_DIST_NAME) | cut -d\" \" -f1`" >> $@ ; \
 	done
 
-kernel_install_header_target:
-	$(RUN) $(MAKE) ARCH=$(ARCH) headers_check
-	$(RUN) $(MAKE) ARCH=$(ARCH) INSTALL_HDR_PATH=$(WORK_DIR) headers_install
+kernel_install_target:
 ifneq ($(strip $(PKG_EXTRACT_WIFI)),)
 ifneq ($(strip $(SYNO_WIFI_CONFIG)),)
-	$(RUN) echo ; cd ../compat-wireless/v3.12.x ; cp $(SYNO_WIFI_CONFIG) .config ; $(MAKE) V=1 KLIB_BUILD=$(KERNEL_DIR) oldconfig ; $(MAKE) V=1 KLIB_BUILD=$(KERNEL_DIR)
+ifneq ($(strip $(SYNO_WIFI_VERSION)),)
+	$(RUN) echo ; cd ../compat-wireless/$(SYNO_WIFI_VERSION)/include ; cp -rf linux/* $(KERNEL_DIR)/include/linux ; cp -rf media/* $(KERNEL_DIR)/include/media ; cp -rf net/* $(KERNEL_DIR)/include/net ; cp -rf uapi/linux/* $(KERNEL_DIR)/include/linux
 endif
 endif
-	exit 1 
+endif
+	$(RUN) $(MAKE) ARCH=$(ARCH) headers_check
+	$(RUN) $(MAKE) ARCH=$(ARCH) INSTALL_HDR_PATH=$(WORK_DIR) headers_install
 
 kernel_module_compile_target:
 	$(RUN) $(MAKE) $(MAKE_OPT) modules
+ifneq ($(strip $(PKG_EXTRACT_WIFI)),)
+ifneq ($(strip $(SYNO_WIFI_CONFIG)),)
+ifneq ($(strip $(SYNO_WIFI_VERSION)),)
+	$(RUN) echo ; cd ../compat-wireless/$(SYNO_WIFI_VERSION) ; cp $(SYNO_WIFI_CONFIG) .config; source include/linux/syno_compat_wireless_def.config ; $(MAKE) $(MAKE_OPT) CFLAGS="$${syno_flags}" KLIB=$(KERNEL_DIR) KLIB_BUILD=$(KERNEL_DIR)
+	$(RUN) echo "header-y += v4l2-common.h" >> $(KERNEL_DIR)/include/linux/Kbuild ; echo "header-y += v4l2-controls.h" >> $(KERNEL_DIR)/include/linux/Kbuild
+endif
+endif
+endif
 
 kernel_extract_target:
 	mkdir -p $(KERNEL_DIR)
