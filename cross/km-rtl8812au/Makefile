@@ -44,9 +44,12 @@ myConfigure:
 
 .PHONY: myCompile
 myCompile:
-	$(RUN) LDFLAGS= make USER_EXTRA_CFLAGS="-DCONFIG_LITTLE_ENDIAN" CROSS_COMPILE="$(TC_PATH)$(TC_TARGET)-" KSRC=$(KERNEL_DIR) MODDESTDIR=$(INSTALL_DIR)$(INSTALL_PREFIX)/modules
-
+#	$(RUN) LDFLAGS= $(MAKE) V=1 USER_EXTRA_CFLAGS="-I$(KERNEL_DIR)/../compat-wireless/v3.12.x/include/uapi -I$(KERNEL_DIR)/../compat-wireless/v3.12.x/include -DCONFIG_LITTLE_ENDIAN" CROSS_COMPILE="$(TC_PATH)$(TC_TARGET)-" KVER="3.12.0" KSRC=$(KERNEL_DIR) MODDESTDIR=$(INSTALL_DIR)$(INSTALL_PREFIX)/modules
+	$(RUN) cp -f $(KERNEL_DIR)/include/linux/version.h $(KERNEL_DIR)/include/linux/version.orig.h ; sed -i "s/.*LINUX_VERSION_CODE.*/#define LINUX_VERSION_CODE 199680/" $(KERNEL_DIR)/include/linux/version.h
+	$(RUN) LDFLAGS= $(MAKE) V=1 USER_EXTRA_CFLAGS="-DCONFIG_LITTLE_ENDIAN" CROSS_COMPILE="$(TC_PATH)$(TC_TARGET)-" KSRC=$(KERNEL_DIR) MODDESTDIR=$(INSTALL_DIR)$(INSTALL_PREFIX)/modules
+	$(RUN) cp -f $(KERNEL_DIR)/include/linux/version.orig.h $(KERNEL_DIR)/include/linux/version.h
+	
 .PHONY: myInstall
 myInstall:
 	$(RUN) mkdir -p $(INSTALL_DIR)$(INSTALL_PREFIX)/modules
-	$(RUN) make MODDESTDIR=$(INSTALL_DIR)$(INSTALL_PREFIX)/modules install
+	$(RUN) $(MAKE) MODDESTDIR=$(INSTALL_DIR)$(INSTALL_PREFIX)/modules install
