@@ -8,6 +8,7 @@ PKG_DIST_SITE = http://downloads.sourceforge.net/project/dsgpl/Synology%20NAS%20
 PKG_EXTRACT = source/linux-3.x
 PKG_EXTRACT_WIFI = source/compat-wireless
 SYNO_CONFIG = synoconfigs/$(ARCH)
+SYNO_WIFI_VERSION = v3.12.x
 SYNO_WIFI_CONFIG = synoconfigs/CEDARVIEW
 BASE_ARCH = x86
 
