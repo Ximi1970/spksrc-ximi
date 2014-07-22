@@ -1,6 +1,9 @@
-spksrc
-======
-spksrc is a cross compilation framework intended to compile and package softwares for Synology NAS
+spksrc-ximi
+===========
+spksrc-ximi is a cross compilation framework intended to compile and package softwares for Synology NAS
+
+USE AT YOUR OWN RISK !!! Some packages can crash or hangup your NAS so be carefull with your data and make extra backups.
+
 
 Requirements
 ------------
