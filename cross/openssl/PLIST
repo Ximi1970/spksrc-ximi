@@ -13,7 +13,7 @@ lib:@MULTILIB@/engines/libpadlock.so
 lib:@MULTILIB@/engines/libsureware.so
 lib:@MULTILIB@/engines/libubsec.so
 lnk:@MULTILIB@/libcrypto.so
-lib:@MULTILIB@/libcrypto.so.1.0.0
+lib:@MULTILIB@/libcrypto.so.1.0.1
 lnk:@MULTILIB@/libssl.so
-lib:@MULTILIB@/libssl.so.1.0.0
+lib:@MULTILIB@/libssl.so.1.0.1
 rsc:openssl.cnf
