@@ -1,2 +1,10 @@
-bin:bin/hostapd
-bin:bin/hostapd_cli
+bin:sbin/hostapd
+bin:sbin/hostapd_cli
+etc:etc/hostapd.accept
+etc:etc/hostapd.conf
+etc:etc/hostapd.deny
+etc:etc/hostapd.eap_user
+etc:etc/hostapd.radius_clients
+etc:etc/hostapd.sim_db
+etc:etc/hostapd.vlan
+etc:etc/hostapd.wpa_psk

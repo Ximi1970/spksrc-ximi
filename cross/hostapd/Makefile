@@ -25,8 +25,18 @@ myConfigure:
 
 .PHONY: myCompile
 myCompile:
-	$(RUN) echo ; cd hostapd ; $(MAKE) $(MAKE_OPT)
+	$(RUN) echo ; cd hostapd ;  $(MAKE) V=1 $(MAKE_OPT) EXTRA_CFLAGS="-I$(INSTALL_DIR)/$(INSTALL_PREFIX)/include/libnl3" EXTRA_LIBS="-L$(INSTALL_DIR)/$(INSTALL_PREFIX)/lib64 -L$(INSTALL_DIR)/lib"
 
 .PHONY: myInstall
 myInstall:
-	$(RUN) echo ; cd hostapd ; $(MAKE) $(MAKE_OPT) install DESTDIR=$(INSTALL_DIR)
+	$(RUN) echo ; cd hostapd ; \
+		install -m 755 hostapd $(INSTALL_DIR)/$(INSTALL_PREFIX)/sbin ; \
+		install -m 755 hostapd_cli $(INSTALL_DIR)/$(INSTALL_PREFIX)/sbin ; \
+		install -m 600 hostapd.conf $(INSTALL_DIR)/$(INSTALL_PREFIX)/etc ; \
+		install -m 644 hostapd.accept $(INSTALL_DIR)/$(INSTALL_PREFIX)/etc ; \
+		install -m 644 hostapd.deny $(INSTALL_DIR)/$(INSTALL_PREFIX)/etc ; \
+		install -m 600 hostapd.eap_user $(INSTALL_DIR)/$(INSTALL_PREFIX)/etc ; \
+		install -m 600 hostapd.radius_clients $(INSTALL_DIR)/$(INSTALL_PREFIX)/etc ; \
+		install -m 644 hostapd.sim_db $(INSTALL_DIR)/$(INSTALL_PREFIX)/etc ; \
+		install -m 644 hostapd.vlan $(INSTALL_DIR)/$(INSTALL_PREFIX)/etc ; \
+		install -m 600 hostapd.wpa_psk $(INSTALL_DIR)/$(INSTALL_PREFIX)/etc
