@@ -1,0 +1,2 @@
+bin:bin/hostapd
+bin:bin/hostapd_cli

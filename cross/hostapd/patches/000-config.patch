@@ -1,0 +1,19 @@
+diff -urN hostapd.orig/defconfig hostapd/defconfig
+--- hostapd.orig/defconfig	2014-06-04 15:26:14.000000000 +0200
++++ hostapd/defconfig	2014-07-26 21:15:22.522859761 +0200
+@@ -27,12 +27,14 @@
+ #
+ #CFLAGS += -I$<path to libnl include files>
+ #LIBS += -L$<path to libnl library files>
++CFLAGS += -I../../install/usr/local/include/libnl3
++LIBS += -L../../install/usr/local/lib64 -L../../install/usr/local/lib
+ 
+ # Use libnl v2.0 (or 3.0) libraries.
+ #CONFIG_LIBNL20=y
+ 
+ # Use libnl 3.2 libraries (if this is selected, CONFIG_LIBNL20 is ignored)
+-#CONFIG_LIBNL32=y
++CONFIG_LIBNL32=y
+ 
+ 
+ # Driver interface for FreeBSD net80211 layer (e.g., Atheros driver)
