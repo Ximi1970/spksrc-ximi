@@ -71,13 +71,6 @@ $(DIGESTS_FILE):
 	done
 
 kernel_install_target:
-ifneq ($(strip $(PKG_EXTRACT_WIFI)),)
-ifneq ($(strip $(SYNO_WIFI_CONFIG)),)
-ifneq ($(strip $(SYNO_WIFI_VERSION)),)
-	$(RUN) echo ; cd ../compat-wireless/$(SYNO_WIFI_VERSION)/include ; cp -rf linux/* $(KERNEL_DIR)/include/linux ; cp -rf media/* $(KERNEL_DIR)/include/media ; cp -rf net/* $(KERNEL_DIR)/include/net ; cp -rf uapi/linux/* $(KERNEL_DIR)/include/linux
-endif
-endif
-endif
 	$(RUN) $(MAKE) ARCH=$(ARCH) headers_check
 	$(RUN) $(MAKE) ARCH=$(ARCH) INSTALL_HDR_PATH=$(WORK_DIR) headers_install
 
@@ -87,7 +80,6 @@ ifneq ($(strip $(PKG_EXTRACT_WIFI)),)
 ifneq ($(strip $(SYNO_WIFI_CONFIG)),)
 ifneq ($(strip $(SYNO_WIFI_VERSION)),)
 	$(RUN) echo ; cd ../compat-wireless/$(SYNO_WIFI_VERSION) ; cp $(SYNO_WIFI_CONFIG) .config; source include/linux/syno_compat_wireless_def.config ; $(MAKE) $(MAKE_OPT) CFLAGS="$${syno_flags}" KLIB=$(KERNEL_DIR) KLIB_BUILD=$(KERNEL_DIR)
-	$(RUN) echo "header-y += v4l2-common.h" >> $(KERNEL_DIR)/include/linux/Kbuild ; echo "header-y += v4l2-controls.h" >> $(KERNEL_DIR)/include/linux/Kbuild
 endif
 endif
 endif

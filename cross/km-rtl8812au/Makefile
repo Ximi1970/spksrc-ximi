@@ -29,9 +29,15 @@ define \n
 
 
 endef
-#ifneq ($(findstring $(ARCH),88f6281 88f5281 powerpc ppc824x ppc853x ppc854x qoriq ),)
-#$(error ${\n}${\n}Architecture not supported.${\n}${\n})
-#endif
+ifneq ($(findstring $(ARCH),88f6281 88f5281 powerpc ppc824x ppc853x ppc854x qoriq ),)
+$(error ${\n}${\n}Architecture not supported.${\n}${\n})
+#DEFAULT_LINUXINCLUDE=-Iinclude -I$(KERNEL_DIR)/arch/$(ARCH)/include -include include/linux/autoconf.h -include include/linux/syno.h
+#WIRELESS_INCLUDE=-I$(KERNEL_DIR)/../compat-wireless/v3.12.x/backport-include -I$(KERNEL_DIR)/../compat-wireless/v3.12.x/include/uapi -I$(KERNEL_DIR)/../compat-wireless/v3.12.x/include
+else
+DEFAULT_LINUXINCLUDE=-I$(KERNEL_DIR)/arch/$(ARCH)/include -Iarch/$(ARCH)/include/generated -Iinclude -include $(KERNEL_DIR)/include/linux/kconfig.h -include include/linux/syno.h
+#-I$(KERNEL_DIR)/../compat-wireless/v3.12.x/backport-include
+WIRELESS_INCLUDE=-I$(KERNEL_DIR)/../compat-wireless/v3.12.x/include/uapi -I$(KERNEL_DIR)/../compat-wireless/v3.12.x/include
+endif
 
 
 include ../../mk/spksrc.cross-cc.mk
@@ -44,10 +50,8 @@ myConfigure:
 
 .PHONY: myCompile
 myCompile:
-#	$(RUN) LDFLAGS= $(MAKE) V=1 USER_EXTRA_CFLAGS="-I$(KERNEL_DIR)/../compat-wireless/v3.12.x/include/uapi -I$(KERNEL_DIR)/../compat-wireless/v3.12.x/include -DCONFIG_LITTLE_ENDIAN" CROSS_COMPILE="$(TC_PATH)$(TC_TARGET)-" KVER="3.12.0" KSRC=$(KERNEL_DIR) MODDESTDIR=$(INSTALL_DIR)$(INSTALL_PREFIX)/modules
-	$(RUN) cp -f $(KERNEL_DIR)/include/linux/version.h $(KERNEL_DIR)/include/linux/version.orig.h ; sed -i "s/.*LINUX_VERSION_CODE.*/#define LINUX_VERSION_CODE 199680/" $(KERNEL_DIR)/include/linux/version.h
-	$(RUN) LDFLAGS= $(MAKE) V=1 USER_EXTRA_CFLAGS="-DCONFIG_LITTLE_ENDIAN" CROSS_COMPILE="$(TC_PATH)$(TC_TARGET)-" KSRC=$(KERNEL_DIR) MODDESTDIR=$(INSTALL_DIR)$(INSTALL_PREFIX)/modules
-	$(RUN) cp -f $(KERNEL_DIR)/include/linux/version.orig.h $(KERNEL_DIR)/include/linux/version.h
+	$(RUN) mkdir -p $(WORK_DIR)/include/linux ; cp -f $(KERNEL_DIR)/include/linux/version.h $(WORK_DIR)/include/linux/version.h ; sed -i "s/.*LINUX_VERSION_CODE.*/#define LINUX_VERSION_CODE 199680/" $(WORK_DIR)/include/linux/version.h
+	$(RUN) LDFLAGS= $(MAKE) V=1 LINUXINCLUDE="-I$(WORK_DIR)/include $(WIRELESS_INCLUDE) $(DEFAULT_LINUXINCLUDE)" USER_EXTRA_CFLAGS="-DCONFIG_LITTLE_ENDIAN" CROSS_COMPILE="$(TC_PATH)$(TC_TARGET)-" KSRC=$(KERNEL_DIR) MODDESTDIR=$(INSTALL_DIR)$(INSTALL_PREFIX)/modules
 	
 .PHONY: myInstall
 myInstall:
