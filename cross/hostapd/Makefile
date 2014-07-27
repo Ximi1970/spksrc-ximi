@@ -5,7 +5,7 @@ PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = http://w1.fi/releases/
 
-DEPENDS = cross/openssl cross/libnl
+DEPENDS = cross/openssl cross/libnl cross/sqlite
 
 HOMEPAGE = http://w1.fi/hostapd/
 COMMENT  = User space daemon for access point and authentication servers.
