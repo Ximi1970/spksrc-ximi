@@ -96,3 +96,11 @@ dsm50:
 	@echo "Setting up kernels for DSM 5.0"
 	@rm -f kernel
 	@ln -sf kernel-5.0 kernel
+
+dsm51:
+	@echo "Setting up toolchains for DSM 5.1"
+	@rm -f toolchains
+	@ln -sf toolchains-5.1 toolchains
+	@echo "Setting up kernels for DSM 5.1"
+	@rm -f kernel
+	@ln -sf kernel-5.1 kernel
