@@ -1,8 +1,9 @@
 PKG_NAME = gmp
-PKG_VERS = 5.1.1
+PKG_VERS = 6.0.0
 PKG_EXT = tar.bz2
-PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
-PKG_DIST_SITE = ftp://ftp.gmplib.org/pub/gmp
+PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS)a.$(PKG_EXT)
+PKG_DIST_SITE = https://gmplib.org/download/gmp
+
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
 DEPENDS =
@@ -14,12 +15,15 @@ LICENSE  = LGPL
 HOST_ARCH = $(shell getconf LONG_BIT)
 ifeq ($(HOST_ARCH),64)
 ARCH_ABI=64
+LIBDIR=lib64
 else
 ARCH_ABI=32
+LIBDIR=lib
 endif
 
 
 COMPILE_TARGET = myCompile
+INSTALL_TARGET = myInstall
 
 
 GNU_CONFIGURE = 1
@@ -30,5 +34,10 @@ include ../../mk/spksrc.native-cc.mk
 
 .PHONY: myCompile
 myCompile:
-	$(RUN) make $(MAKE_OPT)
-	$(RUN) make check
+	$(RUN) $(MAKE) $(MAKE_OPT)
+
+.PHONY: myInstall
+myInstall:
+	$(RUN) $(MAKE) install prefix=$(STAGING_INSTALL_PREFIX)
+	$(RUN) rm $(STAGING_INSTALL_PREFIX)/$(LIBDIR)/*.la
+
