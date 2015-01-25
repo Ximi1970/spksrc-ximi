@@ -147,7 +147,22 @@ toolchain-gcc48
 		native/toolchain-gcc48
 			native/gcc48
 				native/glibc
-					native/gcc47-bootstrap
+					native/gcc48-bootstrap
+						native/gmp
+						native/mpfr
+						native/mpc
+							native/gmp
+							native/mpfr
+						native/binutls
+
+
+toolchain-gcc49
+
+	cross/toolchain-gcc49
+		native/toolchain-gcc49
+			native/gcc49
+				native/glibc
+					native/gcc49-bootstrap
 						native/gmp
 						native/mpfr
 						native/mpc

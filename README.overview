@@ -21,8 +21,9 @@ Build status of the packages:
 	sickbeard		ok       ok         ok        ok   ok      ok       ok
 	toolchain-gcc47		ok       -          -         ok   ok      -        -
 	toolchain-gcc48		ok       -          -         ok   ok      -        -
+	toolchain-gcc49		ok       -          -         ok   ok      -        -
 	tvheadend		ok       ok         ok        ok   ok      ok       ok
 	transmission		ok       ok         ok        ok   ok      ok       ok
 
 
-Packages have been build on an openSuSE 12.3 x86_64 system using a Core i7 2630QM.
+Packages have been build on an openSuSE 13.2 x86_64 system using a Core i7 2630QM.

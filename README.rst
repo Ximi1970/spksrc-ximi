@@ -49,6 +49,10 @@ Or the DSM 5.0 version::
 
 	make dsm50
 
+Or the DSM 5.1 version::
+
+	make dsm51
+
 The toolchain and kernel directory will be linked to the requested version.
 
 
@@ -107,7 +111,7 @@ If you are not familiar with git or GitHub, please refer to the excellent `GitHu
 
 Donate
 ------
-If you like spksrc and packages made out of it, please consider making a donation to these authors:
+If you like spksrc / spksrc-ximi and packages made out of it, please consider making a donation to these authors:
 
 * Ximi1970
 
