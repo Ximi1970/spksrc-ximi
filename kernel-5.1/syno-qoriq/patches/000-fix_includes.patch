@@ -1,0 +1,11 @@
+diff -urN include.orig/linux/Kbuild include/linux/Kbuild
+--- include.orig/linux/Kbuild	2014-12-11 12:27:32.000000000 +0100
++++ include/linux/Kbuild	2015-01-25 12:02:14.897044187 +0100
+@@ -390,6 +390,7 @@
+ 
+ header-y += syno.h
+ header-y += syno_user.h
++header-y += syno_autoconf.h
+ header-y += synosata.h
+ header-y += syno_debug.h
+ header-y += synobios.h

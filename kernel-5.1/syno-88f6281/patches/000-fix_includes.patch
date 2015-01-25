@@ -1,0 +1,19 @@
+diff -urN include.orig/linux/Kbuild include/linux/Kbuild
+--- include.orig/linux/Kbuild	2014-12-11 12:26:28.000000000 +0100
++++ include/linux/Kbuild	2015-01-24 21:58:48.639527399 +0100
+@@ -127,6 +127,7 @@
+ header-y += nfs4_mount.h
+ header-y += nfs_mount.h
+ header-y += nl80211.h
++header-y += numa.h
+ header-y += param.h
+ header-y += pci_regs.h
+ header-y += perf_event.h
+@@ -389,6 +390,7 @@
+ header-y += wimax/
+ 
+ header-y += syno.h
++header-y += syno_autoconf.h
+ header-y += syno_user.h
+ header-y += synosata.h
+ header-y += syno_debug.h
