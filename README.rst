@@ -4,6 +4,10 @@ spksrc-ximi is a cross compilation framework intended to compile and package sof
 
 USE AT YOUR OWN RISK !!! Some packages can crash or hangup your NAS so be carefull with your data and make extra backups.
 
+Known problems:
+
+* qt-embedded / fastcgiqt not working in DSM 5.x
+
 
 Requirements
 ------------
